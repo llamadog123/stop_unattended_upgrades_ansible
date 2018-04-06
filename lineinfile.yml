@@ -1,0 +1,9 @@
+---
+  - hosts: local
+    user: root
+    tasks:
+  - name: stops unattended_upgrade on workstations
+    lineinfile: dest=/etc/apt/apt.conf.d/10periodic 
+                line='APT::Periodic::Unattended-Upgrade "0";'
+		state=present
+
